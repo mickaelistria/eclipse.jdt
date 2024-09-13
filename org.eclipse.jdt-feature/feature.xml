@@ -48,6 +48,10 @@
          version="0.0.0"/>
 
    <plugin
+         id="org.eclipse.jdt.core.javac"
+         version="0.0.0"/>
+
+   <plugin
          id="org.eclipse.jdt.core.formatterapp"
          version="0.0.0"/>
 

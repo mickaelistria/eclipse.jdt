@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	<category-def name="org.eclipse.jdt.javac" label="JDT with Javac"/>
+	<feature id="org.eclipse.jdt" version="0.0.0">
+		<category name="org.eclipse.jdt.javac"/>
+	</feature>
+	<feature id="org.eclipse.jdt.source" version="0.0.0">
+		<category name="org.eclipse.jdt.javac"/>
+	</feature>
+</site>

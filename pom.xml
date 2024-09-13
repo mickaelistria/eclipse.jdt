@@ -26,7 +26,36 @@
 
   <properties>
     <tycho.scmUrl>scm:git:https://github.com/eclipse-jdt/eclipse.jdt.git</tycho.scmUrl>
+    <tycho.buildqualifier.format>'z'yyyyMMdd-HHmm</tycho.buildqualifier.format>
   </properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<configuration>
+					<executionEnvironment>JavaSE-23</executionEnvironment> <!-- Overrides one from .target -->
+					<!--filters>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.jdt.core.compiler.batch</id>
+							<restrictTo>
+								<versionRange>[3.39.100.z,3.39.101)</versionRange>
+							</restrictTo>
+						</filter>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.jdt.core</id>
+							<restrictTo>
+								<versionRange>[3.39.100.z,3.39.101)</versionRange>
+							</restrictTo>
+						</filter>
+					</filters-->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
   <!-- 
     To build individual bundles, we specify a repository where to find parent pom, 
@@ -54,5 +83,14 @@
   <modules>
     <module>org.eclipse.jdt</module>
     <module>org.eclipse.jdt-feature</module>
+		<module>repository</module>
   </modules>
+
+	<repositories>
+		<repository>
+			<id>jdt-incubator</id>
+			<url>https://ci.eclipse.org/ls/job/jdt-core-incubator/job/dom-with-javac/lastSuccessfulBuild/artifact/repository/target/repository/</url>
+			<layout>p2</layout>
+		</repository>
+	</repositories>
 </project>
